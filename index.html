@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seokhyun Lee</title>
+<meta name="description" content="Seokhyun Lee — integrated M.S./Ph.D. student at Korea University working on fundamental questions in machine learning.">
+<meta name="author" content="Seokhyun Lee">
+<meta property="og:title" content="Seokhyun Lee">
+<meta property="og:description" content="Fundamental questions in machine learning, often ones outside the usual framing.">
+<meta property="og:type" content="profile">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232F5BEA'/%3E%3Cpath d='M5 21 L11 21 L11 13 L17 13 L17 18 L21 18 L21 9 L27 9' fill='none' stroke='white' stroke-width='2.4' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5F7FA;
+    --surface: #FFFFFF;
+    --ink: #161A22;
+    --muted: #5A6272;
+    --faint: #8A92A2;
+    --rule: #DDE2EA;
+    --accent: #2F5BEA;
+    --accent-soft: #E6ECFD;
+    --ghost: #B9C6F2;
+    --serif: "Newsreader", Georgia, serif;
+    --sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0E1117; --surface: #151922; --ink: #E8EBF1; --muted: #A0A8B7; --faint: #6E7686;
+      --rule: #252B37; --accent: #7F9CFF; --accent-soft: #1B2442; --ghost: #34427A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0E1117; --surface: #151922; --ink: #E8EBF1; --muted: #A0A8B7; --faint: #6E7686;
+    --rule: #252B37; --accent: #7F9CFF; --accent-soft: #1B2442; --ghost: #34427A;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  /* top bar */
+  .bar { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
+  .bar .home { font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
+  .bar nav { display: flex; gap: 20px; align-items: center; font-size: 14.5px; }
+  .bar nav a { color: var(--muted); }
+  .bar nav a:hover { color: var(--ink); text-decoration: none; }
+  .theme-btn {
+    background: none; border: 1px solid var(--rule); color: var(--muted);
+    width: 32px; height: 32px; border-radius: 8px; cursor: pointer; display: grid; place-items: center;
+  }
+  .theme-btn:hover { color: var(--ink); }
+
+  /* hero */
+  .hero { padding: 48px 0 8px; }
+  .hero-top { display: flex; gap: 28px; align-items: flex-start; }
+  .portrait {
+    width: 128px; height: 128px; border-radius: 50%; object-fit: cover; flex: none;
+    background: var(--accent-soft); border: 1px solid var(--rule);
+  }
+  .name { font-family: var(--serif); font-weight: 500; font-size: 15px; color: var(--muted); margin: 0 0 6px; }
+  .name span { color: var(--faint); margin-left: 6px; }
+  h1 {
+    font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5.2vw, 44px);
+    line-height: 1.12; letter-spacing: -0.015em; margin: 0; max-width: 22ch; text-wrap: balance;
+  }
+  .role { color: var(--muted); margin: 18px 0 0; font-size: 15.5px; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .links a {
+    display: inline-flex; align-items: center; gap: 7px; font-size: 14px;
+    padding: 6px 12px; border: 1px solid var(--rule); border-radius: 999px; color: var(--ink);
+    background: var(--surface);
+  }
+  .links a:hover { border-color: var(--accent); text-decoration: none; }
+  .links svg { width: 15px; height: 15px; }
+
+  /* sections */
+  section { padding-top: 64px; }
+  h2 {
+    font-family: var(--serif); font-weight: 500; font-size: 26px; letter-spacing: -0.01em;
+    margin: 0 0 20px; display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+  }
+  .about p { margin: 0 0 14px; max-width: 66ch; }
+
+  /* news */
+  .news { list-style: none; margin: 0; padding: 0; }
+  .news li { display: grid; grid-template-columns: 88px 1fr; gap: 16px; padding: 9px 0; border-top: 1px solid var(--rule); }
+  .news li:last-child { border-bottom: 1px solid var(--rule); }
+  .news time { color: var(--faint); font-variant-numeric: tabular-nums; font-size: 14.5px; }
+  .news .soon { color: var(--accent); font-size: 14px; }
+
+  /* publication filter */
+  .seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 8px; padding: 2px; font-family: var(--sans); background: var(--surface); }
+  .seg button {
+    font: inherit; font-size: 13.5px; border: 0; background: none; color: var(--muted);
+    padding: 4px 12px; border-radius: 6px; cursor: pointer;
+  }
+  .seg button[aria-pressed="true"] { background: var(--accent-soft); color: var(--ink); }
+  .pub-note { font-size: 13.5px; color: var(--faint); margin: -8px 0 18px; }
+
+  /* publications */
+  .pubs { list-style: none; margin: 0; padding: 0; }
+  .pub { display: grid; grid-template-columns: 108px 1fr; gap: 20px; padding: 18px 0; border-top: 1px solid var(--rule); }
+  .pub:last-child { border-bottom: 1px solid var(--rule); }
+  .venue { padding-top: 2px; }
+  .venue b { display: block; font-weight: 600; font-size: 14px; }
+  .venue small { display: block; color: var(--faint); font-size: 13px; }
+  .pub.first .venue b { color: var(--accent); }
+  .pub h3 { font-size: 16.5px; font-weight: 500; line-height: 1.4; margin: 0 0 4px; }
+  .pub h3 a { color: var(--ink); }
+  .authors { font-size: 14.5px; color: var(--muted); margin: 0; }
+  .authors .me { color: var(--ink); font-weight: 600; }
+  .authors a { color: inherit; }
+  .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin-top: 8px; font-size: 14px; }
+  .award { color: var(--ink); background: var(--accent-soft); padding: 1px 9px; border-radius: 999px; font-size: 13px; }
+  .tldr-btn { font: inherit; font-size: 14px; background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; }
+  .tldr { font-size: 14.5px; color: var(--muted); margin: 10px 0 0; max-width: 62ch; }
+  .tldr[hidden] { display: none; }
+  .eq { font-size: 13px; color: var(--faint); margin-top: 14px; }
+
+  /* timeline lists */
+  .rows { list-style: none; margin: 0; padding: 0; }
+  .rows li { display: grid; grid-template-columns: 1fr auto; gap: 4px 20px; padding: 12px 0; border-top: 1px solid var(--rule); }
+  .rows li:last-child { border-bottom: 1px solid var(--rule); }
+  .rows strong { font-weight: 500; }
+  .rows .when { color: var(--faint); font-size: 14.5px; font-variant-numeric: tabular-nums; text-align: right; }
+  .rows .sub { grid-column: 1 / -1; color: var(--muted); font-size: 14.5px; }
+
+  footer { padding: 72px 0 48px; color: var(--faint); font-size: 13.5px; }
+
+  @media (max-width: 600px) {
+    .wrap { padding: 0 16px; }
+    .bar nav a.opt { display: none; }
+    .hero { padding-top: 28px; }
+    .hero-top { flex-direction: column-reverse; gap: 20px; }
+    .portrait { width: 84px; height: 84px; }
+    .pub { grid-template-columns: 1fr; gap: 6px; }
+    .venue b, .venue small { display: inline; }
+    .venue small { margin-left: 8px; }
+    .news li { grid-template-columns: 1fr; gap: 0; }
+    h2 { flex-wrap: wrap; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="bar">
+    <a class="home" href="#">Seokhyun Lee</a>
+    <nav aria-label="Sections">
+      <a class="opt" href="#news">News</a>
+      <a href="#publications">Publications</a>
+      <a class="opt" href="#education">Education</a>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="hero-top">
+        <div>
+          <p class="name">Seokhyun Lee<span lang="ko">이석현</span></p>
+          <h1>I work on fundamental questions in machine learning, often ones outside the usual framing.</h1>
+          <p class="role">Integrated M.S./Ph.D. student at <a href="https://aix.korea.ac.kr/">Actionable Intelligence Lab</a>, Korea University</p>
+        </div>
+        <!-- Put your photo at images/profile.jpg. It hides itself if the file is missing. -->
+        <img class="portrait" src="images/profile.jpg" alt="Portrait of Seokhyun Lee" onerror="this.remove()">
+      </div>
+
+      <div class="links">
+        <a href="mailto:nshuhsn@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a>
+        <a href="https://scholar.google.com/citations?user=Sa3wdjsAAAAJ">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6.8 9.2V16c0 1.9 3 3.8 6.8 3.8s6.8-1.9 6.8-3.8v-3.8L12 16l-6.8-3.8z"/></svg>Google Scholar</a>
+        <a href="https://www.linkedin.com/in/seokhyun-lee-b0b2a2285">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3V9.5zm7 0h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.1c0-1.22-.02-2.79-1.7-2.79-1.7 0-1.96 1.33-1.96 2.7V21h-4V9.5z"/></svg>LinkedIn</a>
+        <a href="https://github.com/nshuhsn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>GitHub</a>
+        <!-- Add your CV as cv.pdf in the repo root, then uncomment:
+        <a href="cv.pdf">CV</a> -->
+      </div>
+
+    </div>
+
+    <section class="about" id="about" aria-labelledby="about-h">
+      <h2 id="about-h">About</h2>
+      <p>I am an integrated M.S./Ph.D. student in the Department of Artificial Intelligence at Korea University, advised by <a href="https://aix.korea.ac.kr/our-lab/professor">Prof. Changhee Lee</a>. I received my B.S. from Chung-Ang University, where I graduated as valedictorian.</p>
+      <p>I am more interested in fundamental questions than in incremental gains on a benchmark, and I like stepping outside the way a problem is usually posed. That has taken me across several areas: how a time series should be tokenized so one model can move freely between coarse trends and fine detail, how to explain what black-box language models and time-series classifiers rely on, and what it means for society when people become locked in to AI systems.</p>
+    </section>
+
+    <section id="news" aria-labelledby="news-h">
+      <h2 id="news-h">News</h2>
+      <ul class="news" id="newsList"></ul>
+    </section>
+
+    <section id="publications" aria-labelledby="pub-h">
+      <h2 id="pub-h">Publications
+        <span class="seg" role="group" aria-label="Filter publications">
+          <button type="button" data-filter="selected" aria-pressed="true">Selected</button>
+          <button type="button" data-filter="all" aria-pressed="false">All</button>
+        </span>
+      </h2>
+      <ul class="pubs" id="pubList"></ul>
+      <p class="eq">* Equal contribution</p>
+    </section>
+
+    <section id="education" aria-labelledby="edu-h">
+      <h2 id="edu-h">Education</h2>
+      <ul class="rows">
+        <li>
+          <strong>Korea University</strong><span class="when">Mar 2025 – present</span>
+          <span class="sub">Integrated M.S./Ph.D., Department of Artificial Intelligence. Advisor: Prof. Changhee Lee</span>
+        </li>
+        <li>
+          <!-- TODO: add your graduation year in the empty span -->
+          <strong>Chung-Ang University</strong><span class="when"></span>
+          <span class="sub">B.S. in Artificial Intelligence. Graduated as valedictorian</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="honors" aria-labelledby="hon-h">
+      <h2 id="hon-h">Honors and talks</h2>
+      <ul class="rows">
+        <li><strong>Presentation of TimeTok, ICTC 2026</strong><span class="when">2026</span></li>
+        <li><strong>Spotlight paper, ICML 2026</strong><span class="when">2026</span>
+          <span class="sub">Position: AI Lock-In Is in Progress, and We Must Be Prepared</span></li>
+        <li><strong>Valedictorian, Chung-Ang University</strong><span class="when"></span></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Seokhyun Lee. Last updated October 2026.
+  </footer>
+</div>
+
+<script>
+/* ============================================================
+   Edit your content here. Everything below the data renders it.
+   ============================================================ */
+
+const ME = "Seokhyun Lee";
+
+const PEOPLE = {
+  "Changhee Lee": "https://aix.korea.ac.kr/our-lab/professor",
+  "Jaeho Kim": "https://sites.google.com/view/jaeho-kim",
+  "Mihaela van der Schaar": "https://www.vanderschaar-lab.com/",
+};
+
+const NEWS = [
+  { date: "10/2026", text: 'Presented <a href="https://arxiv.org/abs/2605.01418">TimeTok</a> at ICTC 2026.' },
+  { date: "09/2026", text: '<a href="https://arxiv.org/abs/2605.01418">TimeTok</a> accepted to NeurIPS 2026.' },
+  { date: "06/2026", text: 'New preprint on representing time series as structured programs for LLM reasoning, on <a href="https://arxiv.org/abs/2606.12481">arXiv</a>.' },
+  { date: "05/2026", text: '<a href="https://arxiv.org/abs/2608.14565">Position paper on AI lock-in</a> accepted to ICML 2026 as a spotlight.' },
+  { date: "05/2026", text: '<a href="https://dl.acm.org/doi/pdf/10.1145/3770855.3817677">Paper on explaining black-box language models</a> accepted to KDD 2026.' },
+  { date: "05/2026", text: '<a href="https://arxiv.org/abs/2605.20088">INSHAPE</a> accepted to IJCAI 2026.' },
+  { date: "03/2025", text: 'Joined the <a href="https://aix.korea.ac.kr/">Actionable Intelligence Lab</a> at Korea University.' },
+];
+
+/* venue: short label; year; note: award line; first: you are (co-)first author;
+   selected: shown in the Selected view; links: [label, url] pairs */
+const PUBS = [
+  {
+    title: "TimeTok: Granularity-Controllable Time-Series Generation via Hierarchical Tokenization",
+    authors: ["Seokhyun Lee*", "Jaeho Kim*", "Changjun Oh", "Mihaela van der Schaar", "Changhee Lee"],
+    venue: "NeurIPS", year: 2026, first: true, selected: true,
+    links: [["arXiv", "https://arxiv.org/abs/2605.01418"], ["Code", "https://github.com/nshuhsn/TimeTok_NeurIPS"]],
+  },
+  {
+    title: "Position: AI Lock-In Is in Progress, and We Must Be Prepared",
+    authors: ["Jaeho Kim*", "Seokhyun Lee*", "Jieun Lee*", "Changhee Lee"],
+    venue: "ICML", year: 2026, note: "Spotlight", first: true, selected: true,
+    links: [["arXiv", "https://arxiv.org/abs/2608.14565"]],
+  },
+  {
+    title: "Explaining Black-Box Language Models: Learning to Optimize Linguistically-Structured Word Subsets",
+    authors: ["Minyoung Hwang*", "Seokhyun Lee*", "Changhee Lee"],
+    venue: "KDD", year: 2026, first: true, selected: true,
+    links: [["ACM DL", "https://dl.acm.org/doi/pdf/10.1145/3770855.3817677"], ["Code", "https://github.com/ggomaeng514/GLASS"]],
+  },
+  {
+    title: "INSHAPE: Instance-Level Shapelets for Interpretable Time-Series Classification",
+    authors: ["Seongjun Lee*", "Seokhyun Lee*", "Changhee Lee"],
+    venue: "IJCAI", year: 2026, first: true, selected: true,
+    links: [["arXiv", "https://arxiv.org/abs/2605.20088"], ["Code", "https://github.com/nshuhsn/INSHAPE_IJCAI"]],
+  },
+  {
+    title: "Representing Time Series as Structured Programs for LLM Reasoning",
+    authors: ["Jaeho Kim*", "Changjun Oh*", "Seokhyun Lee", "Irina Rish", "Changhee Lee"],
+    venue: "Preprint", year: 2026, selected: false,
+    links: [["arXiv", "https://arxiv.org/abs/2606.12481"]],
+  },
+  {
+    title: "Parallelizable Probabilistic Latent Reasoning for Diverse Reasoning Trajectories",
+    authors: ["Seokhyun Lee", "Seongjun Lee", "Changhee Lee"],
+    venue: "Preprint", year: 2026, first: true, selected: false,
+    links: [],
+  },
+  {
+    title: "Policy-based Word Subset Selection for Explaining Black-Box Language Models",
+    authors: ["Minyoung Hwang*", "Seokhyun Lee*", "Changhee Lee"],
+    venue: "ICTC", year: 2025, first: true, selected: false,
+    links: [["IEEE", "https://ieeexplore.ieee.org/abstract/document/11389069"]],
+  },
+];
+
+/* ============================================================ */
+
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+function renderAuthor(raw) {
+  const star = raw.endsWith("*");
+  const name = star ? raw.slice(0, -1) : raw;
+  let html = esc(name);
+  if (name === ME) html = `<span class="me">${html}</span>`;
+  else if (PEOPLE[name]) html = `<a href="${PEOPLE[name]}">${html}</a>`;
+  return html + (star ? "*" : "");
+}
+
+document.getElementById("newsList").innerHTML = NEWS.map(n =>
+  `<li>${n.date === "upcoming" ? '<span class="soon">Upcoming</span>' : `<time>${n.date}</time>`}<span>${n.text}</span></li>`
+).join("");
+
+function renderPubs(filter) {
+  const list = PUBS.filter(p => filter === "all" || p.selected);
+  document.getElementById("pubList").innerHTML = list.map((p, i) => {
+    const titleLink = p.links.length ? `<a href="${p.links[0][1]}">${esc(p.title)}</a>` : esc(p.title);
+    const id = `tldr-${filter}-${i}`;
+    const links = p.links.map(([l, u]) => `<a href="${u}">${l}</a>`).join("");
+    const tl = p.tldr ? `<button class="tldr-btn" type="button" aria-expanded="false" aria-controls="${id}">TL;DR</button>` : "";
+    return `<li class="pub${p.first ? " first" : ""}">
+      <div class="venue"><b>${p.venue}</b><small>${p.year}</small></div>
+      <div>
+        <h3>${titleLink}</h3>
+        <p class="authors">${p.authors.map(renderAuthor).join(", ")}</p>
+        ${(p.note || links || tl) ? `<div class="meta">${p.note ? `<span class="award">${p.note}</span>` : ""}${links}${tl}</div>` : ""}
+        ${p.tldr ? `<p class="tldr" id="${id}" hidden>${esc(p.tldr)}</p>` : ""}
+      </div>
+    </li>`;
+  }).join("");
+}
+renderPubs("selected");
+
+document.querySelector(".seg").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  document.querySelectorAll(".seg button").forEach(x => x.setAttribute("aria-pressed", x === b));
+  renderPubs(b.dataset.filter);
+});
+document.getElementById("pubList").addEventListener("click", e => {
+  const b = e.target.closest(".tldr-btn"); if (!b) return;
+  const t = document.getElementById(b.getAttribute("aria-controls"));
+  const open = t.hidden; t.hidden = !open; b.setAttribute("aria-expanded", open);
+});
+
+/* theme toggle */
+(function () {
+  const root = document.documentElement;
+  try { const t = localStorage.getItem("theme"); if (t) root.dataset.theme = t; } catch (e) {}
+  document.getElementById("themeBtn").addEventListener("click", () => {
+    const dark = root.dataset.theme ? root.dataset.theme === "dark"
+      : matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = dark ? "light" : "dark";
+    try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+  });
+})();
+
+</script>
+</body>
+</html>
